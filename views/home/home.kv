@@ -1,0 +1,468 @@
+<Home>:
+    padding: dp(14)
+    spacing: dp(16)
+    BoxLayout:
+        spacing: dp(16)
+        orientation: 'vertical'
+        size_hint_x: .80
+        BoxLayout:
+            spacing: dp(16)
+            size_hint_y: .2
+            ShadowBox:
+                radius: [dp(14)]
+                elevation: 2
+                padding: dp(14)
+                orientation: 'vertical'
+                spacing: dp(8)
+                BoxLayout:
+                    spacing: dp(14)
+                    AnchorLayout:
+                        size_hint_x: None
+                        width: self.height
+                        IconButton:
+                            source: 'assets\icons\ic_trend_active.png'           
+                    BoxLayout:
+                        orientation: 'vertical'
+                        spacing: dp(8)
+                        Text:
+                            text: 'Venda Mensal'
+                            font_name: app.fonts.body
+                            font_size: app.fonts.size.h2
+                            color: app.colors.secondary
+                        Text:
+                            text: root.vendas
+                            font_name: app.fonts.heading
+                            font_size: app.fonts.size.h1
+                            color: app.colors.secondary
+                BoxLayout:
+                    size_hint_y: None
+                    height: dp(24)
+                    spacing: dp(8)
+                    Text:
+                        text: 'Comparação ao Mes Passado'
+                        color: app.colors.secondary
+                        font_name: app.fonts.body
+                        font_size: app.fonts.size.h5
+                        size_hint_x: .8
+                    BoxLayout:
+                        size_hint_x: .2
+                        padding: [dp(4), dp(2)]
+                        canvas.before:
+                            Color:
+                                rgba: rgba('#E1F1FF')
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [self.height/2]
+                        Text:
+                            text: '+8.5%'                                           #FAZER FUNCIONAR DEPOIS
+                            color: app.colors.primary
+                            font_name: app.fonts.subheading
+                            font_size: app.fonts.size.h5
+                            halign: 'center'
+            ShadowBox:                                                              #TOTAL KITS
+                radius: [dp(14)]
+                elevation: 2
+                padding: dp(14)
+                orientation: 'vertical'
+                spacing: dp(8)         
+                BoxLayout:
+                    spacing: dp(14)    
+                    BoxLayout:
+                        orientation: 'vertical'
+                        spacing: dp(8)
+                        Text:
+                            text: 'Vendas Totais'
+                            font_name: app.fonts.body
+                            font_size: app.fonts.size.h1
+                            color: app.colors.secondary
+                            halign: 'center'
+                        Text:
+                            text: root.vendas2
+                            font_name: app.fonts.heading
+                            font_size: app.fonts.size.h1
+                            color: app.colors.secondary
+                            halign: 'center'
+                BoxLayout:
+                    size_hint_y: None
+                    height: dp(24)
+                    spacing: dp(8)
+                    Text:
+                        text: 'Renda Mensal Tirando 35%'
+                        color: app.colors.secondary
+                        font_name: app.fonts.body
+                        font_size: app.fonts.size.h4
+                        size_hint_x: 1
+                        halign: 'center'
+            ShadowBox:                                                              #TOTAL KITS
+                radius: [dp(14)]
+                elevation: 2
+                padding: dp(14)
+                orientation: 'vertical'
+                spacing: dp(8)         
+                BoxLayout:
+                    spacing: dp(14)    
+                    BoxLayout:
+                        orientation: 'vertical'
+                        spacing: dp(8)
+                        Text:
+                            text: 'Vendedora Com Maior Venda'
+                            font_name: app.fonts.body
+                            font_size: app.fonts.size.h3
+                            color: app.colors.secondary
+                            halign: 'center'
+                        Text:
+                            text: 'Alessandra'
+                            font_name: app.fonts.heading
+                            font_size: app.fonts.size.h2
+                            color: app.colors.secondary
+                            halign: 'center'
+                BoxLayout:
+                    size_hint_y: None
+                    height: dp(24)
+                    spacing: dp(8)
+                    Text:
+                        text: 'Valor Revendido'
+                        color: app.colors.secondary
+                        font_name: app.fonts.body
+                        font_size: app.fonts.size.h4
+                        size_hint_x: .5
+                    BoxLayout:
+                        size_hint_x: .5
+                        padding: [dp(4), dp(2)]
+                        canvas.before:
+                            Color:
+                                rgba: rgba('#E1F1FF')
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [self.height/2]
+                        Text:
+                            text: 'R$ 915,00'                                      #FAZER FUNCIONAR DEPOIS
+                            color: app.colors.primary
+                            font_name: app.fonts.subheading
+                            font_size: app.fonts.size.h4
+                            halign: 'center'
+        BoxLayout:
+            spacing: dp(8)
+            size_hint_y: .8
+            orientation: 'vertical'
+            ShadowBox:
+                radius: [dp(14)]
+                elevation: 2
+                orientation: 'vertical'
+                spacing: dp(8)
+                padding: dp(12)
+                BoxLayout:
+                    spacing: dp(8)
+                    size_hint_y: None
+                    height: dp(42)
+                    BoxLayout:
+                        orientation: 'vertical'
+                        spacing: dp(8)
+                        size_hint_x: .8
+                        Text:
+                            text: 'Produtos Vendidos por Mês'
+                            font_size: app.fonts.size.h2
+                            font_name: app.fonts.subheading
+                            color: app.colors.secondary
+                            size_hint_y: None
+                            height: dp(68)
+                            halign: 'left'
+                BoxLayout:
+                    id: graph
+    BoxLayout:
+        size_hint_x: .20
+        ShadowBox:
+            radius: [dp(14)]
+            elevation: 2
+            padding: dp(14)
+            orientation: 'vertical'
+            spacing: dp(8)
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: .09
+                spacing: dp(1)
+                Text:
+                    text: 'Produtos'
+                    font_size: app.fonts.size.h1
+                    font_name: app.fonts.heading
+                    color: app.colors.secondary
+                    size_hint_y: None
+                    height: dp(32)
+                    halign: 'center'
+                Text:
+                    text: 'Mais Vendidos'
+                    font_size: app.fonts.size.h1
+                    font_name: app.fonts.heading
+                    color: app.colors.secondary
+                    size_hint_y: None
+                    height: dp(32)
+                    halign: 'center'
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: .01
+                canvas.before:
+                    Color:
+                        rgba: app.colors.secondary
+                    Rectangle:
+                        pos: self.pos
+                        size: [self.size[0], dp(4)]
+            GridLayout:
+                id: vendas_box
+                cols: 1
+                size_hint_y: .90
+                spacing: dp(1)
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .09
+                    Text:
+                        text: root.produtos_vend['produtos'][0]
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 70
+                        height: dp(40)
+                        halign: 'left'
+                    Text:
+                        text: root.produtos_vend['quantidade'][1] + ' unid'
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 30
+                        height: dp(40)
+                        halign: 'right'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .01
+                    canvas.before:
+                        Color:
+                            rgba: app.colors.secondary
+                        Rectangle:
+                            pos: self.pos
+                            size: [self.size[0], dp(2)]
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .09
+                    Text:
+                        text: root.produtos_vend['produtos'][1]
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 70
+                        height: dp(40)
+                        halign: 'left'
+                    Text:
+                        text: root.produtos_vend['quantidade'][4] + ' unid'
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 30
+                        height: dp(40)
+                        halign: 'right'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .01
+                    canvas.before:
+                        Color:
+                            rgba: app.colors.secondary
+                        Rectangle:
+                            pos: self.pos
+                            size: [self.size[0], dp(2)]
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .09
+                    Text:
+                        text: root.produtos_vend['produtos'][2]
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 70
+                        height: dp(40)
+                        halign: 'left'
+                    Text:
+                        text: root.produtos_vend['quantidade'][7] + ' unid'
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 30
+                        height: dp(40)
+                        halign: 'right'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .01
+                    canvas.before:
+                        Color:
+                            rgba: app.colors.secondary
+                        Rectangle:
+                            pos: self.pos
+                            size: [self.size[0], dp(2)]
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .09
+                    Text:
+                        text: root.produtos_vend['produtos'][3]
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 70
+                        height: dp(40)
+                        halign: 'left'
+                    Text:
+                        text: root.produtos_vend['quantidade'][10] + ' unid'
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 30
+                        height: dp(40)
+                        halign: 'right'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .01
+                    canvas.before:
+                        Color:
+                            rgba: app.colors.secondary
+                        Rectangle:
+                            pos: self.pos
+                            size: [self.size[0], dp(2)]
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .09
+                    Text:
+                        text: root.produtos_vend['produtos'][4]
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 70
+                        height: dp(40)
+                        halign: 'left'
+                    Text:
+                        text: root.produtos_vend['quantidade'][13] + ' unid'
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 30
+                        height: dp(40)
+                        halign: 'right'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .01
+                    canvas.before:
+                        Color:
+                            rgba: app.colors.secondary
+                        Rectangle:
+                            pos: self.pos
+                            size: [self.size[0], dp(2)]
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .09
+                    Text:
+                        text: root.produtos_vend['produtos'][5]
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 70
+                        height: dp(40)
+                        halign: 'left'
+                    Text:
+                        text: root.produtos_vend['quantidade'][16] + ' unid'
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 30
+                        height: dp(40)
+                        halign: 'right'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .01
+                    canvas.before:
+                        Color:
+                            rgba: app.colors.secondary
+                        Rectangle:
+                            pos: self.pos
+                            size: [self.size[0], dp(2)]
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .09
+                    Text:
+                        text: root.produtos_vend['produtos'][6]
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 70
+                        height: dp(40)
+                        halign: 'left'
+                    Text:
+                        text: root.produtos_vend['quantidade'][19] + ' unid'
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 30
+                        height: dp(40)
+                        halign: 'right'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .01
+                    canvas.before:
+                        Color:
+                            rgba: app.colors.secondary
+                        Rectangle:
+                            pos: self.pos
+                            size: [self.size[0], dp(2)]
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .09
+                    Text:
+                        text: root.produtos_vend['produtos'][7]
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 70
+                        height: dp(40)
+                        halign: 'left'
+                    Text:
+                        text: root.produtos_vend['quantidade'][22] + ' unid'
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 30
+                        height: dp(40)
+                        halign: 'right'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .01
+                    canvas.before:
+                        Color:
+                            rgba: app.colors.secondary
+                        Rectangle:
+                            pos: self.pos
+                            size: [self.size[0], dp(2)]
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .09
+                    Text:
+                        text: root.produtos_vend['produtos'][8]
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 70
+                        height: dp(40)
+                        halign: 'left'
+                    Text:
+                        text: root.produtos_vend['quantidade'][25] + ' unid'
+                        font_size: app.fonts.size.h5
+                        font_name: app.fonts.heading
+                        color: app.colors.secondary
+                        size_hint_x: 30
+                        height: dp(40)
+                        halign: 'right'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: .01
+                    canvas.before:
+                        Color:
+                            rgba: app.colors.secondary
+                        Rectangle:
+                            pos: self.pos
+                            size: [self.size[0], dp(2)]
+                    
